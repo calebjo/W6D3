@@ -1963,3 +1963,360 @@ Completed 204 No Content in 76890ms (ActiveRecord: 12.9ms)
   [1m[36mComment Load (2.0ms)[0m  [1m[34mSELECT  * FROM "comments" INNER JOIN "artworks" ON "artworks"."id" = "comments"."artwork_id" WHERE (artworks.id = 1) LIMIT $1[0m  [["LIMIT", 11]]
   [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT  * FROM "comments" INNER JOIN "artworks" ON "artworks"."id" = "comments"."artwork_id" WHERE (artworks.id = {:user_id=>1}) LIMIT $1[0m  [["LIMIT", 11]]
   [1m[36mComment Load (1.4ms)[0m  [1m[34mSELECT  * FROM "comments" INNER JOIN "artworks" ON "artworks"."id" = "comments"."artwork_id" WHERE (artworks.id = ) LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6770978919105658740)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to CreateComments (20211111190344)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (24.8ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "user_id" integer NOT NULL, "artwork_id" integer NOT NULL, "body" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20211111190344_create_comments.rb:3
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_user_id" ON "comments"  ("user_id")[0m
+  ↳ db/migrate/20211111190344_create_comments.rb:11
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_artwork_id" ON "comments"  ("artwork_id")[0m
+  ↳ db/migrate/20211111190344_create_comments.rb:12
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211111190344"]]
+  ↳ bin/rails:4
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6770978919105658740)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:16
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 29]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 29]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 30]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Destroy (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 30]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 31]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 31]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Josh"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Josh"], ["created_at", "2021-11-11 19:45:29.458411"], ["updated_at", "2021-11-11 19:45:29.458411"]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Caleb"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Caleb"], ["created_at", "2021-11-11 19:45:29.460877"], ["updated_at", "2021-11-11 19:45:29.460877"]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Alvin"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Alvin"], ["created_at", "2021-11-11 19:45:29.462409"], ["updated_at", "2021-11-11 19:45:29.462409"]]
+  ↳ db/seeds.rb:17
+  [1m[36mArtwork Load (0.4ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ db/seeds.rb:23
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."artwork_id" = $1[0m  [["artwork_id", 16]]
+  ↳ db/seeds.rb:23
+  [1m[36mArtwork Destroy (0.2ms)[0m  [1m[31mDELETE FROM "artworks" WHERE "artworks"."id" = $1[0m  [["id", 16]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."artwork_id" = $1[0m  [["artwork_id", 15]]
+  ↳ db/seeds.rb:23
+  [1m[36mArtwork Destroy (0.1ms)[0m  [1m[31mDELETE FROM "artworks" WHERE "artworks"."id" = $1[0m  [["id", 15]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mArtwork Create (0.2ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image_url", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Star Wars"], ["image_url", "https://www.google.com/imgres?imgurl=https%3A%2F%2Fres.cloudinary.com%2Fjerrick%2Fimage%2Fupload%2Ff_jpg%2Cfl_progressive%2Cq_auto%2Cw_1024%2Fy3mdgvccfyvmemabidd0.jpg&imgrefurl=https%3A%2F%2Fvocal.media%2Fgeeks%2Fthe-funniest-star-wars-parodies-spoofs-and-sketches&tbnid=PxVZGOV_iZQL5M&vet=12ahUKEwiT1vDg4Y70AhWVqnIEHc3hAnUQMygAegUIARC1AQ..i&docid=TOFSYS-33UHtdM&w=1024&h=683&itg=1&q=star%20wars%20funny&ved=2ahUKEwiT1vDg4Y70AhWVqnIEHc3hAnUQMygAegUIARC1AQ"], ["artist_id", 32], ["created_at", "2021-11-11 19:45:29.533268"], ["updated_at", "2021-11-11 19:45:29.533268"]]
+  ↳ db/seeds.rb:24
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mArtwork Create (0.1ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image_url", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Lord of the Rings"], ["image_url", "https://media-cldnry.s-nbcnews.com/image/upload/streams/2013/October/131016/8C9394934-tdy-kardashian-ring-131016-new.jpg"], ["artist_id", 33], ["created_at", "2021-11-11 19:45:29.535161"], ["updated_at", "2021-11-11 19:45:29.535161"]]
+  ↳ db/seeds.rb:24
+  [1m[36mArtworkShare Load (0.3ms)[0m  [1m[34mSELECT "artwork_shares".* FROM "artwork_shares"[0m
+  ↳ db/seeds.rb:29
+  [1m[36mArtworkShare Destroy (0.2ms)[0m  [1m[31mDELETE FROM "artwork_shares" WHERE "artwork_shares"."id" = $1[0m  [["id", 4]]
+  ↳ db/seeds.rb:29
+  [1m[36mArtworkShare Destroy (0.1ms)[0m  [1m[31mDELETE FROM "artwork_shares" WHERE "artwork_shares"."id" = $1[0m  [["id", 5]]
+  ↳ db/seeds.rb:29
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtwork Load (0.3ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtworkShare Create (0.3ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 18], ["viewer_id", 34], ["created_at", "2021-11-11 19:45:29.596691"], ["updated_at", "2021-11-11 19:45:29.596691"]]
+  ↳ db/seeds.rb:30
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtworkShare Create (0.1ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 19], ["viewer_id", 34], ["created_at", "2021-11-11 19:45:29.599186"], ["updated_at", "2021-11-11 19:45:29.599186"]]
+  ↳ db/seeds.rb:30
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ db/seeds.rb:35
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.3ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 32], ["artwork_id", 19], ["body", "This sucks"], ["created_at", "2021-11-11 19:45:29.642197"], ["updated_at", "2021-11-11 19:45:29.642197"]]
+  ↳ db/seeds.rb:36
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 33], ["artwork_id", 18], ["body", "Love your work"], ["created_at", "2021-11-11 19:45:29.644947"], ["updated_at", "2021-11-11 19:45:29.644947"]]
+  ↳ db/seeds.rb:36
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 34], ["artwork_id", 18], ["body", "I will buy this as an NFT."], ["created_at", "2021-11-11 19:45:29.647328"], ["updated_at", "2021-11-11 19:45:29.647328"]]
+  ↳ db/seeds.rb:36
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 34], ["artwork_id", 19], ["body", "How much can I buy this for?"], ["created_at", "2021-11-11 19:45:29.649375"], ["updated_at", "2021-11-11 19:45:29.649375"]]
+  ↳ db/seeds.rb:36
+  [1m[35m (3.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/comments/?comment[user_id]=32" for ::1 at 2021-11-11 14:50:26 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/caleb/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by CommentsController#index as */*
+  Parameters: {"comment"=>{"user_id"=>"32"}}
+No template found for CommentsController#index, rendering head :no_content
+Completed 204 No Content in 8197ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/comments/?comment[user_id]=32" for ::1 at 2021-11-11 14:50:55 -0500
+Processing by CommentsController#index as */*
+  Parameters: {"comment"=>{"user_id"=>"32"}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  * FROM "comments" INNER JOIN "users" ON "users"."id" = "comments"."user_id" WHERE "user"."id" IS NULL LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ app/controllers/comments_controller.rb:5
+Completed 500 Internal Server Error in 55266ms (ActiveRecord: 3.1ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `index'
+app/controllers/comments_controller.rb:5:in `index'
+Started GET "/comments/?comment[user_id]=32" for 127.0.0.1 at 2021-11-11 14:52:02 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/caleb/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by CommentsController#index as */*
+  Parameters: {"comment"=>{"user_id"=>"32"}}
+No template found for CommentsController#index, rendering head :no_content
+Completed 204 No Content in 5526ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/comments/?comment[user_id]=32" for 127.0.0.1 at 2021-11-11 14:52:21 -0500
+Processing by CommentsController#index as */*
+  Parameters: {"comment"=>{"user_id"=>"32"}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  * FROM "comments" INNER JOIN "users" ON "users"."id" = "comments"."user_id" WHERE "comment"."user_id" IS NULL LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ app/controllers/comments_controller.rb:5
+Completed 500 Internal Server Error in 19816ms (ActiveRecord: 3.5ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `index'
+app/controllers/comments_controller.rb:5:in `index'
+Started GET "/comments/?comment[user_id]=32" for ::1 at 2021-11-11 14:53:00 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/caleb/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by CommentsController#index as */*
+  Parameters: {"comment"=>{"user_id"=>"32"}}
+No template found for CommentsController#index, rendering head :no_content
+Completed 204 No Content in 2645ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/comments/?comment[user_id]=32" for ::1 at 2021-11-11 14:53:33 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/caleb/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by CommentsController#index as */*
+  Parameters: {"comment"=>{"user_id"=>"32"}}
+Completed 500 Internal Server Error in 70399ms (ActiveRecord: 0.0ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `index'
+app/controllers/comments_controller.rb:5:in `index'
+Started GET "/comments/?user_id=32" for ::1 at 2021-11-11 14:54:52 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/caleb/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by CommentsController#index as */*
+  Parameters: {"user_id"=>"32"}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT * FROM "comments" INNER JOIN "users" ON "users"."id" = "comments"."user_id" WHERE "comment"."user_id" = $1[0m  [["user_id", "32"]]
+  ↳ app/controllers/comments_controller.rb:12
+Completed 500 Internal Server Error in 2533ms (ActiveRecord: 3.0ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedTable: ERROR:  missing FROM-clause entry for table "comment"
+LINE 1: ...ers" ON "users"."id" = "comments"."user_id" WHERE "comment"....
+                                                             ^
+: SELECT * FROM "comments" INNER JOIN "users" ON "users"."id" = "comments"."user_id" WHERE "comment"."user_id" = $1):
+  
+app/controllers/comments_controller.rb:12:in `index'
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT  * FROM "comments" INNER JOIN "users" ON "users"."id" = "comments"."user_id" WHERE "comment"."user_id" = $1 LIMIT $2[0m  [["user_id", 32], ["LIMIT", 11]]
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT  * FROM "comments" INNER JOIN "users" ON "users"."id" = "comments"."user_id" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  * FROM "users" INNER JOIN "comments" ON "comments"."user_id" = "users"."id" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "comments" ON "comments"."user_id" = "users"."id" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "comments" ON "comments"."user_id" = "users"."id" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/comments/?user_id=32" for ::1 at 2021-11-11 15:05:14 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/caleb/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by CommentsController#index as */*
+  Parameters: {"user_id"=>"32"}
+  [1m[36mComment Load (1.3ms)[0m  [1m[34mSELECT * FROM "comments" INNER JOIN "users" ON "users"."id" = "comments"."user_id" WHERE "comments"."user_id" = $1[0m  [["user_id", 32]]
+  ↳ app/controllers/comments_controller.rb:12
+Completed 200 OK in 9797ms (Views: 54.5ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/comments/?user_id=32&artwork_id=19" for ::1 at 2021-11-11 15:07:32 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/caleb/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by CommentsController#index as */*
+  Parameters: {"user_id"=>"32", "artwork_id"=>"19"}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT * FROM "comments" INNER JOIN "users" ON "users"."id" = "comments"."user_id" WHERE "comments"."artwork_id" = $1[0m  [["artwork_id", 19]]
+  ↳ app/controllers/comments_controller.rb:8
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT * FROM "comments" INNER JOIN "artworks" ON "artworks"."id" = "comments"."artwork_id" WHERE "comments"."user_id" = $1[0m  [["user_id", 32]]
+  ↳ app/controllers/comments_controller.rb:8
+Completed 200 OK in 3011ms (Views: 0.8ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/comments/?artwork_id=20" for ::1 at 2021-11-11 15:09:08 -0500
+Processing by CommentsController#index as */*
+  Parameters: {"artwork_id"=>"20"}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT * FROM "comments" INNER JOIN "artworks" ON "artworks"."id" = "comments"."artwork_id" WHERE "comments"."artwork_id" = $1[0m  [["artwork_id", 20]]
+  ↳ app/controllers/comments_controller.rb:14
+Completed 200 OK in 2807ms (Views: 1.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/comments/?artwork_id=18" for ::1 at 2021-11-11 15:09:17 -0500
+Processing by CommentsController#index as */*
+  Parameters: {"artwork_id"=>"18"}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT * FROM "comments" INNER JOIN "artworks" ON "artworks"."id" = "comments"."artwork_id" WHERE "comments"."artwork_id" = $1[0m  [["artwork_id", 18]]
+  ↳ app/controllers/comments_controller.rb:14
+Completed 200 OK in 711ms (Views: 1.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users?username=Alvin" for ::1 at 2021-11-11 15:15:26 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/caleb/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"Alvin"}
+No template found for UsersController#index, rendering head :no_content
+Completed 204 No Content in 3093ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users?username=Josh" for ::1 at 2021-11-11 15:15:46 -0500
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"Josh"}
+No template found for UsersController#index, rendering head :no_content
+Completed 204 No Content in 2315ms (ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  * FROM "users" WHERE (username LIKE '%Alvin%') LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/users?username=a" for ::1 at 2021-11-11 15:17:58 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/caleb/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"a"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT * FROM "users" WHERE (username LIKE '%a%')[0m
+  ↳ app/controllers/users_controller.rb:6
+Completed 200 OK in 76ms (Views: 5.3ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/users?username=a" for ::1 at 2021-11-11 15:20:59 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/caleb/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"a"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT * FROM "users" WHERE (username LIKE '%a%' OR username LIKE '%A%')[0m
+  ↳ app/controllers/users_controller.rb:9
+Completed 200 OK in 74ms (Views: 4.6ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/users?username=Alv" for ::1 at 2021-11-11 15:21:08 -0500
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"Alv"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT * FROM "users" WHERE (username LIKE '%alv%' OR username LIKE '%ALV%')[0m
+  ↳ app/controllers/users_controller.rb:9
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users?username=Alv" for ::1 at 2021-11-11 15:23:03 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/caleb/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"Alv"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT * FROM "users" WHERE (LOWER(username) LIKE '%alv%')[0m
+  ↳ app/controllers/users_controller.rb:9
+Completed 200 OK in 78ms (Views: 4.8ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/users?username=alv" for ::1 at 2021-11-11 15:23:08 -0500
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"alv"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT * FROM "users" WHERE (LOWER(username) LIKE '%alv%')[0m
+  ↳ app/controllers/users_controller.rb:9
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users?username=ALV" for ::1 at 2021-11-11 15:23:11 -0500
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"ALV"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT * FROM "users" WHERE (LOWER(username) LIKE '%alv%')[0m
+  ↳ app/controllers/users_controller.rb:9
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users?username=OSH" for ::1 at 2021-11-11 15:23:15 -0500
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"OSH"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT * FROM "users" WHERE (LOWER(username) LIKE '%osh%')[0m
+  ↳ app/controllers/users_controller.rb:9
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users?username=aleb" for ::1 at 2021-11-11 15:23:18 -0500
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"aleb"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT * FROM "users" WHERE (LOWER(username) LIKE '%aleb%')[0m
+  ↳ app/controllers/users_controller.rb:9
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users?username=cleb" for ::1 at 2021-11-11 15:23:26 -0500
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"cleb"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT * FROM "users" WHERE (LOWER(username) LIKE '%cleb%')[0m
+  ↳ app/controllers/users_controller.rb:9
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users?username=josh" for ::1 at 2021-11-11 15:23:30 -0500
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"josh"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT * FROM "users" WHERE (LOWER(username) LIKE '%josh%')[0m
+  ↳ app/controllers/users_controller.rb:9
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.7ms)
+
+

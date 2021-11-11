@@ -32,4 +32,12 @@ ActiveRecord::Base.transaction do
         {artwork_id: artworks.second.id, viewer_id: users.third.id}
     ])
 
+    Comment.destroy_all
+    comments = Comment.create!([
+        {user_id: users.first.id, artwork_id: artworks.second.id, body: 'This sucks'},
+        {user_id: users.second.id, artwork_id: artworks.first.id, body: 'Love your work'},
+        {user_id: users.third.id, artwork_id: artworks.first.id, body: 'I will buy this as an NFT.'},
+        {user_id: users.third.id, artwork_id: artworks.second.id, body: 'How much can I buy this for?'}
+    ])
+
 end

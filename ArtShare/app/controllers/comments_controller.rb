@@ -1,18 +1,15 @@
 class CommentsController < ApplicationController
 
     def index
-        debugger
         if params[:user_id] && params[:artwork_id]
-            @comments = Comment.select('*').joins(:artwork).where("artworks.id = #{params[:artwork_id]}")
-            @artworks = Comment.select('*').joins(:author).where("user.id = #{params[:user_id]}")
+            @comments = Comment.select('*').joins(:artwork).where(comments: {user_id: params[:user_id]})
+            @artworks = Comment.select('*').joins(:author).where(comments: {artwork_id: params[:artwork_id]})
             render json: (@artworks + @comments)
-
         elsif params[:user_id]
-            @comments = Comment.select('*').joins(:author).where()
+            @comments = Comment.select('*').joins(:author).where(comments: {user_id: params[:user_id]})
             render json: @comments
         elsif params[:artwork_id]
-
-            @comments = Comment.select('*').joins(:artwork).where("artworks.id = #{params[:artwork_id]}")
+            @comments = Comment.select('*').joins(:artwork).where(comments: {artwork_id: params[:artwork_id]})
             render json: @comments
         end
     end

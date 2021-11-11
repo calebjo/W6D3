@@ -19,5 +19,4 @@ class Comment < ApplicationRecord
         foreign_key: :artwork_id,
         class_name: :Artwork
 
-
 end
