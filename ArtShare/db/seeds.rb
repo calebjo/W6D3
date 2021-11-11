@@ -40,4 +40,10 @@ ActiveRecord::Base.transaction do
         {user_id: users.third.id, artwork_id: artworks.second.id, body: 'How much can I buy this for?'}
     ])
 
+    Like.destroy_all
+    likes = Like.create!([
+        {}
+
+    ])
+
 end
