@@ -1,8 +1,5 @@
 class Like < ApplicationRecord
 
     belongs_to :likeable,
-    polymorphic: true
-
-    
-
+        polymorphic: true
 end

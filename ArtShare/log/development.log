@@ -2372,3 +2372,1072 @@ Migrating to CreateLikes (20211111203207)
   [1m[36mLike Load (0.7ms)[0m  [1m[34mSELECT  "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2 LIMIT $3[0m  [["likeable_id", 1], ["likeable_type", "User"], ["LIMIT", 11]]
   [1m[36mArtwork Load (1.0ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" ORDER BY "artworks"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mLike Load (0.7ms)[0m  [1m[34mSELECT  "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2 LIMIT $3[0m  [["likeable_id", 1], ["likeable_type", "Artwork"], ["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6770978919105658740)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to CreateLikes (20211111203207)
+  [1m[35m (1.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (19.7ms)[0m  [1m[35mCREATE TABLE "likes" ("id" bigserial primary key, "likeable_type" character varying, "likeable_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20211111203207_create_likes.rb:3
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE  INDEX  "index_likes_on_likeable_type_and_likeable_id" ON "likes"  ("likeable_type", "likeable_id")[0m
+  ↳ db/migrate/20211111203207_create_likes.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211111203207"]]
+  ↳ bin/rails:4
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6770978919105658740)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:16
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 32]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Destroy (0.2ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 32]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 33]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Destroy (0.4ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 2]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 33]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 34]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 3]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 4]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 34]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Josh"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Josh"], ["created_at", "2021-11-11 21:08:46.601187"], ["updated_at", "2021-11-11 21:08:46.601187"]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Caleb"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Caleb"], ["created_at", "2021-11-11 21:08:46.603759"], ["updated_at", "2021-11-11 21:08:46.603759"]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Alvin"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Alvin"], ["created_at", "2021-11-11 21:08:46.609091"], ["updated_at", "2021-11-11 21:08:46.609091"]]
+  ↳ db/seeds.rb:17
+  [1m[36mArtwork Load (0.4ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ db/seeds.rb:23
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."artwork_id" = $1[0m  [["artwork_id", 18]]
+  ↳ db/seeds.rb:23
+  [1m[36mArtwork Destroy (0.2ms)[0m  [1m[31mDELETE FROM "artworks" WHERE "artworks"."id" = $1[0m  [["id", 18]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."artwork_id" = $1[0m  [["artwork_id", 19]]
+  ↳ db/seeds.rb:23
+  [1m[36mArtwork Destroy (0.1ms)[0m  [1m[31mDELETE FROM "artworks" WHERE "artworks"."id" = $1[0m  [["id", 19]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mArtwork Create (0.2ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image_url", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Star Wars"], ["image_url", "https://www.google.com/imgres?imgurl=https%3A%2F%2Fres.cloudinary.com%2Fjerrick%2Fimage%2Fupload%2Ff_jpg%2Cfl_progressive%2Cq_auto%2Cw_1024%2Fy3mdgvccfyvmemabidd0.jpg&imgrefurl=https%3A%2F%2Fvocal.media%2Fgeeks%2Fthe-funniest-star-wars-parodies-spoofs-and-sketches&tbnid=PxVZGOV_iZQL5M&vet=12ahUKEwiT1vDg4Y70AhWVqnIEHc3hAnUQMygAegUIARC1AQ..i&docid=TOFSYS-33UHtdM&w=1024&h=683&itg=1&q=star%20wars%20funny&ved=2ahUKEwiT1vDg4Y70AhWVqnIEHc3hAnUQMygAegUIARC1AQ"], ["artist_id", 35], ["created_at", "2021-11-11 21:08:46.675363"], ["updated_at", "2021-11-11 21:08:46.675363"]]
+  ↳ db/seeds.rb:24
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mArtwork Create (0.1ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image_url", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Lord of the Rings"], ["image_url", "https://media-cldnry.s-nbcnews.com/image/upload/streams/2013/October/131016/8C9394934-tdy-kardashian-ring-131016-new.jpg"], ["artist_id", 36], ["created_at", "2021-11-11 21:08:46.677366"], ["updated_at", "2021-11-11 21:08:46.677366"]]
+  ↳ db/seeds.rb:24
+  [1m[36mArtworkShare Load (0.4ms)[0m  [1m[34mSELECT "artwork_shares".* FROM "artwork_shares"[0m
+  ↳ db/seeds.rb:29
+  [1m[36mArtworkShare Destroy (0.1ms)[0m  [1m[31mDELETE FROM "artwork_shares" WHERE "artwork_shares"."id" = $1[0m  [["id", 6]]
+  ↳ db/seeds.rb:29
+  [1m[36mArtworkShare Destroy (0.3ms)[0m  [1m[31mDELETE FROM "artwork_shares" WHERE "artwork_shares"."id" = $1[0m  [["id", 7]]
+  ↳ db/seeds.rb:29
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 37], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtworkShare Create (0.3ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 20], ["viewer_id", 37], ["created_at", "2021-11-11 21:08:46.741124"], ["updated_at", "2021-11-11 21:08:46.741124"]]
+  ↳ db/seeds.rb:30
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 37], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtworkShare Create (0.1ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 21], ["viewer_id", 37], ["created_at", "2021-11-11 21:08:46.743987"], ["updated_at", "2021-11-11 21:08:46.743987"]]
+  ↳ db/seeds.rb:30
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ db/seeds.rb:35
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.3ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 35], ["artwork_id", 21], ["body", "This sucks"], ["created_at", "2021-11-11 21:08:46.789225"], ["updated_at", "2021-11-11 21:08:46.789225"]]
+  ↳ db/seeds.rb:36
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 36], ["artwork_id", 20], ["body", "Love your work"], ["created_at", "2021-11-11 21:08:46.791998"], ["updated_at", "2021-11-11 21:08:46.791998"]]
+  ↳ db/seeds.rb:36
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 37], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 37], ["artwork_id", 20], ["body", "I will buy this as an NFT."], ["created_at", "2021-11-11 21:08:46.794365"], ["updated_at", "2021-11-11 21:08:46.794365"]]
+  ↳ db/seeds.rb:36
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 37], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 37], ["artwork_id", 21], ["body", "How much can I buy this for?"], ["created_at", "2021-11-11 21:08:46.796897"], ["updated_at", "2021-11-11 21:08:46.796897"]]
+  ↳ db/seeds.rb:36
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+  ↳ db/seeds.rb:43
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:16
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 32]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Destroy (0.3ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 32]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 33]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 2]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 33]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 34]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 3]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 4]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 34]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Josh"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Josh"], ["created_at", "2021-11-11 21:09:00.371458"], ["updated_at", "2021-11-11 21:09:00.371458"]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Caleb"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Caleb"], ["created_at", "2021-11-11 21:09:00.373021"], ["updated_at", "2021-11-11 21:09:00.373021"]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Alvin"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Alvin"], ["created_at", "2021-11-11 21:09:00.374328"], ["updated_at", "2021-11-11 21:09:00.374328"]]
+  ↳ db/seeds.rb:17
+  [1m[36mArtwork Load (0.4ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ db/seeds.rb:23
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."artwork_id" = $1[0m  [["artwork_id", 18]]
+  ↳ db/seeds.rb:23
+  [1m[36mArtwork Destroy (0.2ms)[0m  [1m[31mDELETE FROM "artworks" WHERE "artworks"."id" = $1[0m  [["id", 18]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."artwork_id" = $1[0m  [["artwork_id", 19]]
+  ↳ db/seeds.rb:23
+  [1m[36mArtwork Destroy (0.1ms)[0m  [1m[31mDELETE FROM "artworks" WHERE "artworks"."id" = $1[0m  [["id", 19]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mArtwork Create (0.2ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image_url", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Star Wars"], ["image_url", "https://www.google.com/imgres?imgurl=https%3A%2F%2Fres.cloudinary.com%2Fjerrick%2Fimage%2Fupload%2Ff_jpg%2Cfl_progressive%2Cq_auto%2Cw_1024%2Fy3mdgvccfyvmemabidd0.jpg&imgrefurl=https%3A%2F%2Fvocal.media%2Fgeeks%2Fthe-funniest-star-wars-parodies-spoofs-and-sketches&tbnid=PxVZGOV_iZQL5M&vet=12ahUKEwiT1vDg4Y70AhWVqnIEHc3hAnUQMygAegUIARC1AQ..i&docid=TOFSYS-33UHtdM&w=1024&h=683&itg=1&q=star%20wars%20funny&ved=2ahUKEwiT1vDg4Y70AhWVqnIEHc3hAnUQMygAegUIARC1AQ"], ["artist_id", 38], ["created_at", "2021-11-11 21:09:00.429221"], ["updated_at", "2021-11-11 21:09:00.429221"]]
+  ↳ db/seeds.rb:24
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mArtwork Create (0.1ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image_url", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Lord of the Rings"], ["image_url", "https://media-cldnry.s-nbcnews.com/image/upload/streams/2013/October/131016/8C9394934-tdy-kardashian-ring-131016-new.jpg"], ["artist_id", 39], ["created_at", "2021-11-11 21:09:00.430982"], ["updated_at", "2021-11-11 21:09:00.430982"]]
+  ↳ db/seeds.rb:24
+  [1m[36mArtworkShare Load (0.4ms)[0m  [1m[34mSELECT "artwork_shares".* FROM "artwork_shares"[0m
+  ↳ db/seeds.rb:29
+  [1m[36mArtworkShare Destroy (0.3ms)[0m  [1m[31mDELETE FROM "artwork_shares" WHERE "artwork_shares"."id" = $1[0m  [["id", 6]]
+  ↳ db/seeds.rb:29
+  [1m[36mArtworkShare Destroy (0.1ms)[0m  [1m[31mDELETE FROM "artwork_shares" WHERE "artwork_shares"."id" = $1[0m  [["id", 7]]
+  ↳ db/seeds.rb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtworkShare Create (0.2ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 22], ["viewer_id", 40], ["created_at", "2021-11-11 21:09:00.489135"], ["updated_at", "2021-11-11 21:09:00.489135"]]
+  ↳ db/seeds.rb:30
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtworkShare Create (0.1ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 23], ["viewer_id", 40], ["created_at", "2021-11-11 21:09:00.491438"], ["updated_at", "2021-11-11 21:09:00.491438"]]
+  ↳ db/seeds.rb:30
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ db/seeds.rb:35
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.3ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 38], ["artwork_id", 23], ["body", "This sucks"], ["created_at", "2021-11-11 21:09:00.525446"], ["updated_at", "2021-11-11 21:09:00.525446"]]
+  ↳ db/seeds.rb:36
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 39], ["artwork_id", 22], ["body", "Love your work"], ["created_at", "2021-11-11 21:09:00.527869"], ["updated_at", "2021-11-11 21:09:00.527869"]]
+  ↳ db/seeds.rb:36
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 40], ["artwork_id", 22], ["body", "I will buy this as an NFT."], ["created_at", "2021-11-11 21:09:00.529778"], ["updated_at", "2021-11-11 21:09:00.529778"]]
+  ↳ db/seeds.rb:36
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 40], ["artwork_id", 23], ["body", "How much can I buy this for?"], ["created_at", "2021-11-11 21:09:00.531919"], ["updated_at", "2021-11-11 21:09:00.531919"]]
+  ↳ db/seeds.rb:36
+  [1m[36mLike Load (0.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+  ↳ db/seeds.rb:43
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:16
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 32]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Destroy (0.4ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 32]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 33]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Destroy (0.4ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 2]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 33]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 34]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 3]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 4]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 34]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Josh"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Josh"], ["created_at", "2021-11-11 21:09:45.168491"], ["updated_at", "2021-11-11 21:09:45.168491"]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Caleb"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Caleb"], ["created_at", "2021-11-11 21:09:45.170114"], ["updated_at", "2021-11-11 21:09:45.170114"]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Alvin"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Alvin"], ["created_at", "2021-11-11 21:09:45.171568"], ["updated_at", "2021-11-11 21:09:45.171568"]]
+  ↳ db/seeds.rb:17
+  [1m[36mArtwork Load (0.3ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ db/seeds.rb:23
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."artwork_id" = $1[0m  [["artwork_id", 18]]
+  ↳ db/seeds.rb:23
+  [1m[36mArtwork Destroy (0.2ms)[0m  [1m[31mDELETE FROM "artworks" WHERE "artworks"."id" = $1[0m  [["id", 18]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."artwork_id" = $1[0m  [["artwork_id", 19]]
+  ↳ db/seeds.rb:23
+  [1m[36mArtwork Destroy (0.1ms)[0m  [1m[31mDELETE FROM "artworks" WHERE "artworks"."id" = $1[0m  [["id", 19]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mArtwork Create (1.2ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image_url", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Star Wars"], ["image_url", "https://www.google.com/imgres?imgurl=https%3A%2F%2Fres.cloudinary.com%2Fjerrick%2Fimage%2Fupload%2Ff_jpg%2Cfl_progressive%2Cq_auto%2Cw_1024%2Fy3mdgvccfyvmemabidd0.jpg&imgrefurl=https%3A%2F%2Fvocal.media%2Fgeeks%2Fthe-funniest-star-wars-parodies-spoofs-and-sketches&tbnid=PxVZGOV_iZQL5M&vet=12ahUKEwiT1vDg4Y70AhWVqnIEHc3hAnUQMygAegUIARC1AQ..i&docid=TOFSYS-33UHtdM&w=1024&h=683&itg=1&q=star%20wars%20funny&ved=2ahUKEwiT1vDg4Y70AhWVqnIEHc3hAnUQMygAegUIARC1AQ"], ["artist_id", 41], ["created_at", "2021-11-11 21:09:45.229468"], ["updated_at", "2021-11-11 21:09:45.229468"]]
+  ↳ db/seeds.rb:24
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mArtwork Create (0.1ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image_url", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Lord of the Rings"], ["image_url", "https://media-cldnry.s-nbcnews.com/image/upload/streams/2013/October/131016/8C9394934-tdy-kardashian-ring-131016-new.jpg"], ["artist_id", 42], ["created_at", "2021-11-11 21:09:45.232702"], ["updated_at", "2021-11-11 21:09:45.232702"]]
+  ↳ db/seeds.rb:24
+  [1m[36mArtworkShare Load (0.3ms)[0m  [1m[34mSELECT "artwork_shares".* FROM "artwork_shares"[0m
+  ↳ db/seeds.rb:29
+  [1m[36mArtworkShare Destroy (0.2ms)[0m  [1m[31mDELETE FROM "artwork_shares" WHERE "artwork_shares"."id" = $1[0m  [["id", 6]]
+  ↳ db/seeds.rb:29
+  [1m[36mArtworkShare Destroy (0.1ms)[0m  [1m[31mDELETE FROM "artwork_shares" WHERE "artwork_shares"."id" = $1[0m  [["id", 7]]
+  ↳ db/seeds.rb:29
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 43], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtworkShare Create (0.2ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 24], ["viewer_id", 43], ["created_at", "2021-11-11 21:09:45.290227"], ["updated_at", "2021-11-11 21:09:45.290227"]]
+  ↳ db/seeds.rb:30
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 43], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtworkShare Create (0.1ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 25], ["viewer_id", 43], ["created_at", "2021-11-11 21:09:45.292674"], ["updated_at", "2021-11-11 21:09:45.292674"]]
+  ↳ db/seeds.rb:30
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ db/seeds.rb:35
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 41], ["artwork_id", 25], ["body", "This sucks"], ["created_at", "2021-11-11 21:09:45.332191"], ["updated_at", "2021-11-11 21:09:45.332191"]]
+  ↳ db/seeds.rb:36
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 42], ["artwork_id", 24], ["body", "Love your work"], ["created_at", "2021-11-11 21:09:45.334819"], ["updated_at", "2021-11-11 21:09:45.334819"]]
+  ↳ db/seeds.rb:36
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 43], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 43], ["artwork_id", 24], ["body", "I will buy this as an NFT."], ["created_at", "2021-11-11 21:09:45.337414"], ["updated_at", "2021-11-11 21:09:45.337414"]]
+  ↳ db/seeds.rb:36
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 43], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 43], ["artwork_id", 25], ["body", "How much can I buy this for?"], ["created_at", "2021-11-11 21:09:45.340701"], ["updated_at", "2021-11-11 21:09:45.340701"]]
+  ↳ db/seeds.rb:36
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+  ↳ db/seeds.rb:43
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:16
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 32]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Destroy (0.4ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 32]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 33]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 2]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 33]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 34]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 3]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 4]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 34]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Josh"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Josh"], ["created_at", "2021-11-11 21:12:47.197059"], ["updated_at", "2021-11-11 21:12:47.197059"]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Caleb"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Caleb"], ["created_at", "2021-11-11 21:12:47.198750"], ["updated_at", "2021-11-11 21:12:47.198750"]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Alvin"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Alvin"], ["created_at", "2021-11-11 21:12:47.200402"], ["updated_at", "2021-11-11 21:12:47.200402"]]
+  ↳ db/seeds.rb:17
+  [1m[36mArtwork Load (0.6ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ db/seeds.rb:23
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."artwork_id" = $1[0m  [["artwork_id", 18]]
+  ↳ db/seeds.rb:23
+  [1m[36mArtwork Destroy (0.2ms)[0m  [1m[31mDELETE FROM "artworks" WHERE "artworks"."id" = $1[0m  [["id", 18]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."artwork_id" = $1[0m  [["artwork_id", 19]]
+  ↳ db/seeds.rb:23
+  [1m[36mArtwork Destroy (0.1ms)[0m  [1m[31mDELETE FROM "artworks" WHERE "artworks"."id" = $1[0m  [["id", 19]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mArtwork Create (0.2ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image_url", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Star Wars"], ["image_url", "https://www.google.com/imgres?imgurl=https%3A%2F%2Fres.cloudinary.com%2Fjerrick%2Fimage%2Fupload%2Ff_jpg%2Cfl_progressive%2Cq_auto%2Cw_1024%2Fy3mdgvccfyvmemabidd0.jpg&imgrefurl=https%3A%2F%2Fvocal.media%2Fgeeks%2Fthe-funniest-star-wars-parodies-spoofs-and-sketches&tbnid=PxVZGOV_iZQL5M&vet=12ahUKEwiT1vDg4Y70AhWVqnIEHc3hAnUQMygAegUIARC1AQ..i&docid=TOFSYS-33UHtdM&w=1024&h=683&itg=1&q=star%20wars%20funny&ved=2ahUKEwiT1vDg4Y70AhWVqnIEHc3hAnUQMygAegUIARC1AQ"], ["artist_id", 44], ["created_at", "2021-11-11 21:12:47.263765"], ["updated_at", "2021-11-11 21:12:47.263765"]]
+  ↳ db/seeds.rb:24
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mArtwork Create (0.1ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image_url", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Lord of the Rings"], ["image_url", "https://media-cldnry.s-nbcnews.com/image/upload/streams/2013/October/131016/8C9394934-tdy-kardashian-ring-131016-new.jpg"], ["artist_id", 45], ["created_at", "2021-11-11 21:12:47.265757"], ["updated_at", "2021-11-11 21:12:47.265757"]]
+  ↳ db/seeds.rb:24
+  [1m[36mArtworkShare Load (0.6ms)[0m  [1m[34mSELECT "artwork_shares".* FROM "artwork_shares"[0m
+  ↳ db/seeds.rb:29
+  [1m[36mArtworkShare Destroy (0.1ms)[0m  [1m[31mDELETE FROM "artwork_shares" WHERE "artwork_shares"."id" = $1[0m  [["id", 6]]
+  ↳ db/seeds.rb:29
+  [1m[36mArtworkShare Destroy (0.1ms)[0m  [1m[31mDELETE FROM "artwork_shares" WHERE "artwork_shares"."id" = $1[0m  [["id", 7]]
+  ↳ db/seeds.rb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtworkShare Create (0.2ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 26], ["viewer_id", 46], ["created_at", "2021-11-11 21:12:47.325340"], ["updated_at", "2021-11-11 21:12:47.325340"]]
+  ↳ db/seeds.rb:30
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtworkShare Create (0.1ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 27], ["viewer_id", 46], ["created_at", "2021-11-11 21:12:47.327768"], ["updated_at", "2021-11-11 21:12:47.327768"]]
+  ↳ db/seeds.rb:30
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ db/seeds.rb:35
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 44], ["artwork_id", 27], ["body", "This sucks"], ["created_at", "2021-11-11 21:12:47.362520"], ["updated_at", "2021-11-11 21:12:47.362520"]]
+  ↳ db/seeds.rb:36
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 45], ["artwork_id", 26], ["body", "Love your work"], ["created_at", "2021-11-11 21:12:47.364966"], ["updated_at", "2021-11-11 21:12:47.364966"]]
+  ↳ db/seeds.rb:36
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 46], ["artwork_id", 26], ["body", "I will buy this as an NFT."], ["created_at", "2021-11-11 21:12:47.367782"], ["updated_at", "2021-11-11 21:12:47.367782"]]
+  ↳ db/seeds.rb:36
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 46], ["artwork_id", 27], ["body", "How much can I buy this for?"], ["created_at", "2021-11-11 21:12:47.370024"], ["updated_at", "2021-11-11 21:12:47.370024"]]
+  ↳ db/seeds.rb:36
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+  ↳ db/seeds.rb:43
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:16
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 32]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Destroy (0.4ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 32]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 33]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 2]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 33]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 34]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 3]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 4]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 34]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Josh"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Josh"], ["created_at", "2021-11-11 21:13:10.617034"], ["updated_at", "2021-11-11 21:13:10.617034"]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Caleb"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Caleb"], ["created_at", "2021-11-11 21:13:10.618624"], ["updated_at", "2021-11-11 21:13:10.618624"]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Alvin"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Alvin"], ["created_at", "2021-11-11 21:13:10.620010"], ["updated_at", "2021-11-11 21:13:10.620010"]]
+  ↳ db/seeds.rb:17
+  [1m[36mArtwork Load (0.5ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ db/seeds.rb:23
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."artwork_id" = $1[0m  [["artwork_id", 18]]
+  ↳ db/seeds.rb:23
+  [1m[36mArtwork Destroy (0.1ms)[0m  [1m[31mDELETE FROM "artworks" WHERE "artworks"."id" = $1[0m  [["id", 18]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."artwork_id" = $1[0m  [["artwork_id", 19]]
+  ↳ db/seeds.rb:23
+  [1m[36mArtwork Destroy (0.1ms)[0m  [1m[31mDELETE FROM "artworks" WHERE "artworks"."id" = $1[0m  [["id", 19]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mArtwork Create (0.4ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image_url", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Star Wars"], ["image_url", "https://www.google.com/imgres?imgurl=https%3A%2F%2Fres.cloudinary.com%2Fjerrick%2Fimage%2Fupload%2Ff_jpg%2Cfl_progressive%2Cq_auto%2Cw_1024%2Fy3mdgvccfyvmemabidd0.jpg&imgrefurl=https%3A%2F%2Fvocal.media%2Fgeeks%2Fthe-funniest-star-wars-parodies-spoofs-and-sketches&tbnid=PxVZGOV_iZQL5M&vet=12ahUKEwiT1vDg4Y70AhWVqnIEHc3hAnUQMygAegUIARC1AQ..i&docid=TOFSYS-33UHtdM&w=1024&h=683&itg=1&q=star%20wars%20funny&ved=2ahUKEwiT1vDg4Y70AhWVqnIEHc3hAnUQMygAegUIARC1AQ"], ["artist_id", 47], ["created_at", "2021-11-11 21:13:10.683716"], ["updated_at", "2021-11-11 21:13:10.683716"]]
+  ↳ db/seeds.rb:24
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mArtwork Create (0.2ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image_url", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Lord of the Rings"], ["image_url", "https://media-cldnry.s-nbcnews.com/image/upload/streams/2013/October/131016/8C9394934-tdy-kardashian-ring-131016-new.jpg"], ["artist_id", 48], ["created_at", "2021-11-11 21:13:10.687435"], ["updated_at", "2021-11-11 21:13:10.687435"]]
+  ↳ db/seeds.rb:24
+  [1m[36mArtworkShare Load (0.5ms)[0m  [1m[34mSELECT "artwork_shares".* FROM "artwork_shares"[0m
+  ↳ db/seeds.rb:29
+  [1m[36mArtworkShare Destroy (0.2ms)[0m  [1m[31mDELETE FROM "artwork_shares" WHERE "artwork_shares"."id" = $1[0m  [["id", 6]]
+  ↳ db/seeds.rb:29
+  [1m[36mArtworkShare Destroy (0.1ms)[0m  [1m[31mDELETE FROM "artwork_shares" WHERE "artwork_shares"."id" = $1[0m  [["id", 7]]
+  ↳ db/seeds.rb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtworkShare Create (0.2ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 28], ["viewer_id", 49], ["created_at", "2021-11-11 21:13:10.744005"], ["updated_at", "2021-11-11 21:13:10.744005"]]
+  ↳ db/seeds.rb:30
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtworkShare Create (0.1ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 29], ["viewer_id", 49], ["created_at", "2021-11-11 21:13:10.746551"], ["updated_at", "2021-11-11 21:13:10.746551"]]
+  ↳ db/seeds.rb:30
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ db/seeds.rb:35
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 47], ["artwork_id", 29], ["body", "This sucks"], ["created_at", "2021-11-11 21:13:10.781099"], ["updated_at", "2021-11-11 21:13:10.781099"]]
+  ↳ db/seeds.rb:36
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 48], ["artwork_id", 28], ["body", "Love your work"], ["created_at", "2021-11-11 21:13:10.783614"], ["updated_at", "2021-11-11 21:13:10.783614"]]
+  ↳ db/seeds.rb:36
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 49], ["artwork_id", 28], ["body", "I will buy this as an NFT."], ["created_at", "2021-11-11 21:13:10.785839"], ["updated_at", "2021-11-11 21:13:10.785839"]]
+  ↳ db/seeds.rb:36
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 49], ["artwork_id", 29], ["body", "How much can I buy this for?"], ["created_at", "2021-11-11 21:13:10.788011"], ["updated_at", "2021-11-11 21:13:10.788011"]]
+  ↳ db/seeds.rb:36
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+  ↳ db/seeds.rb:43
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ db/seeds.rb:44
+  [1m[36mLike Create (0.4ms)[0m  [1m[32mINSERT INTO "likes" ("likeable_type", "likeable_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["likeable_type", "User"], ["likeable_id", 49], ["created_at", "2021-11-11 21:13:10.808285"], ["updated_at", "2021-11-11 21:13:10.808285"]]
+  ↳ db/seeds.rb:44
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ db/seeds.rb:44
+  [1m[36mLike Create (0.2ms)[0m  [1m[32mINSERT INTO "likes" ("likeable_type", "likeable_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["likeable_type", "User"], ["likeable_id", 49], ["created_at", "2021-11-11 21:13:10.810476"], ["updated_at", "2021-11-11 21:13:10.810476"]]
+  ↳ db/seeds.rb:44
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ db/seeds.rb:44
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:16
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 32]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Destroy (0.4ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 32]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 33]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Destroy (0.2ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 2]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 33]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 34]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 3]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 4]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 34]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Josh"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Josh"], ["created_at", "2021-11-11 21:20:04.398655"], ["updated_at", "2021-11-11 21:20:04.398655"]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Caleb"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Caleb"], ["created_at", "2021-11-11 21:20:04.400474"], ["updated_at", "2021-11-11 21:20:04.400474"]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Alvin"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Alvin"], ["created_at", "2021-11-11 21:20:04.401797"], ["updated_at", "2021-11-11 21:20:04.401797"]]
+  ↳ db/seeds.rb:17
+  [1m[36mArtwork Load (0.3ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ db/seeds.rb:23
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."artwork_id" = $1[0m  [["artwork_id", 18]]
+  ↳ db/seeds.rb:23
+  [1m[36mArtwork Destroy (0.2ms)[0m  [1m[31mDELETE FROM "artworks" WHERE "artworks"."id" = $1[0m  [["id", 18]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."artwork_id" = $1[0m  [["artwork_id", 19]]
+  ↳ db/seeds.rb:23
+  [1m[36mArtwork Destroy (0.1ms)[0m  [1m[31mDELETE FROM "artworks" WHERE "artworks"."id" = $1[0m  [["id", 19]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mArtwork Create (0.2ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image_url", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Star Wars"], ["image_url", "https://www.google.com/imgres?imgurl=https%3A%2F%2Fres.cloudinary.com%2Fjerrick%2Fimage%2Fupload%2Ff_jpg%2Cfl_progressive%2Cq_auto%2Cw_1024%2Fy3mdgvccfyvmemabidd0.jpg&imgrefurl=https%3A%2F%2Fvocal.media%2Fgeeks%2Fthe-funniest-star-wars-parodies-spoofs-and-sketches&tbnid=PxVZGOV_iZQL5M&vet=12ahUKEwiT1vDg4Y70AhWVqnIEHc3hAnUQMygAegUIARC1AQ..i&docid=TOFSYS-33UHtdM&w=1024&h=683&itg=1&q=star%20wars%20funny&ved=2ahUKEwiT1vDg4Y70AhWVqnIEHc3hAnUQMygAegUIARC1AQ"], ["artist_id", 50], ["created_at", "2021-11-11 21:20:04.462348"], ["updated_at", "2021-11-11 21:20:04.462348"]]
+  ↳ db/seeds.rb:24
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mArtwork Create (0.2ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image_url", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Lord of the Rings"], ["image_url", "https://media-cldnry.s-nbcnews.com/image/upload/streams/2013/October/131016/8C9394934-tdy-kardashian-ring-131016-new.jpg"], ["artist_id", 51], ["created_at", "2021-11-11 21:20:04.464104"], ["updated_at", "2021-11-11 21:20:04.464104"]]
+  ↳ db/seeds.rb:24
+  [1m[36mArtworkShare Load (0.3ms)[0m  [1m[34mSELECT "artwork_shares".* FROM "artwork_shares"[0m
+  ↳ db/seeds.rb:29
+  [1m[36mArtworkShare Destroy (0.1ms)[0m  [1m[31mDELETE FROM "artwork_shares" WHERE "artwork_shares"."id" = $1[0m  [["id", 6]]
+  ↳ db/seeds.rb:29
+  [1m[36mArtworkShare Destroy (0.1ms)[0m  [1m[31mDELETE FROM "artwork_shares" WHERE "artwork_shares"."id" = $1[0m  [["id", 7]]
+  ↳ db/seeds.rb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 52], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtworkShare Create (0.2ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 30], ["viewer_id", 52], ["created_at", "2021-11-11 21:20:04.516551"], ["updated_at", "2021-11-11 21:20:04.516551"]]
+  ↳ db/seeds.rb:30
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 52], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtworkShare Create (0.1ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 31], ["viewer_id", 52], ["created_at", "2021-11-11 21:20:04.518862"], ["updated_at", "2021-11-11 21:20:04.518862"]]
+  ↳ db/seeds.rb:30
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ db/seeds.rb:35
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 50], ["artwork_id", 31], ["body", "This sucks"], ["created_at", "2021-11-11 21:20:04.553261"], ["updated_at", "2021-11-11 21:20:04.553261"]]
+  ↳ db/seeds.rb:36
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 51], ["artwork_id", 30], ["body", "Love your work"], ["created_at", "2021-11-11 21:20:04.556823"], ["updated_at", "2021-11-11 21:20:04.556823"]]
+  ↳ db/seeds.rb:36
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 52], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 52], ["artwork_id", 30], ["body", "I will buy this as an NFT."], ["created_at", "2021-11-11 21:20:04.558960"], ["updated_at", "2021-11-11 21:20:04.558960"]]
+  ↳ db/seeds.rb:36
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 52], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 52], ["artwork_id", 31], ["body", "How much can I buy this for?"], ["created_at", "2021-11-11 21:20:04.560899"], ["updated_at", "2021-11-11 21:20:04.560899"]]
+  ↳ db/seeds.rb:36
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+  ↳ db/seeds.rb:43
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 52], ["LIMIT", 1]]
+  ↳ db/seeds.rb:44
+  [1m[36mLike Create (0.2ms)[0m  [1m[32mINSERT INTO "likes" ("likeable_type", "likeable_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["likeable_type", "User"], ["likeable_id", 52], ["created_at", "2021-11-11 21:20:04.580335"], ["updated_at", "2021-11-11 21:20:04.580335"]]
+  ↳ db/seeds.rb:44
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ db/seeds.rb:44
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6770978919105658740)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to ChangeLikes (20211111212057)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "likes" ADD "user_id" integer NOT NULL[0m
+  ↳ db/migrate/20211111212057_change_likes.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211111212057"]]
+  ↳ bin/rails:4
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6770978919105658740)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:16
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 32]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Destroy (0.5ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 32]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 33]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 2]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 33]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 34]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 3]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 4]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 34]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Josh"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Josh"], ["created_at", "2021-11-11 21:22:52.610768"], ["updated_at", "2021-11-11 21:22:52.610768"]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Caleb"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Caleb"], ["created_at", "2021-11-11 21:22:52.612287"], ["updated_at", "2021-11-11 21:22:52.612287"]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Alvin"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Alvin"], ["created_at", "2021-11-11 21:22:52.613516"], ["updated_at", "2021-11-11 21:22:52.613516"]]
+  ↳ db/seeds.rb:17
+  [1m[36mArtwork Load (0.6ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ db/seeds.rb:23
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."artwork_id" = $1[0m  [["artwork_id", 18]]
+  ↳ db/seeds.rb:23
+  [1m[36mArtwork Destroy (0.2ms)[0m  [1m[31mDELETE FROM "artworks" WHERE "artworks"."id" = $1[0m  [["id", 18]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."artwork_id" = $1[0m  [["artwork_id", 19]]
+  ↳ db/seeds.rb:23
+  [1m[36mArtwork Destroy (0.1ms)[0m  [1m[31mDELETE FROM "artworks" WHERE "artworks"."id" = $1[0m  [["id", 19]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mArtwork Create (0.2ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image_url", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Star Wars"], ["image_url", "https://www.google.com/imgres?imgurl=https%3A%2F%2Fres.cloudinary.com%2Fjerrick%2Fimage%2Fupload%2Ff_jpg%2Cfl_progressive%2Cq_auto%2Cw_1024%2Fy3mdgvccfyvmemabidd0.jpg&imgrefurl=https%3A%2F%2Fvocal.media%2Fgeeks%2Fthe-funniest-star-wars-parodies-spoofs-and-sketches&tbnid=PxVZGOV_iZQL5M&vet=12ahUKEwiT1vDg4Y70AhWVqnIEHc3hAnUQMygAegUIARC1AQ..i&docid=TOFSYS-33UHtdM&w=1024&h=683&itg=1&q=star%20wars%20funny&ved=2ahUKEwiT1vDg4Y70AhWVqnIEHc3hAnUQMygAegUIARC1AQ"], ["artist_id", 53], ["created_at", "2021-11-11 21:22:52.674306"], ["updated_at", "2021-11-11 21:22:52.674306"]]
+  ↳ db/seeds.rb:24
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 54], ["LIMIT", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mArtwork Create (0.2ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image_url", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Lord of the Rings"], ["image_url", "https://media-cldnry.s-nbcnews.com/image/upload/streams/2013/October/131016/8C9394934-tdy-kardashian-ring-131016-new.jpg"], ["artist_id", 54], ["created_at", "2021-11-11 21:22:52.676546"], ["updated_at", "2021-11-11 21:22:52.676546"]]
+  ↳ db/seeds.rb:24
+  [1m[36mArtworkShare Load (0.6ms)[0m  [1m[34mSELECT "artwork_shares".* FROM "artwork_shares"[0m
+  ↳ db/seeds.rb:29
+  [1m[36mArtworkShare Destroy (0.2ms)[0m  [1m[31mDELETE FROM "artwork_shares" WHERE "artwork_shares"."id" = $1[0m  [["id", 6]]
+  ↳ db/seeds.rb:29
+  [1m[36mArtworkShare Destroy (0.1ms)[0m  [1m[31mDELETE FROM "artwork_shares" WHERE "artwork_shares"."id" = $1[0m  [["id", 7]]
+  ↳ db/seeds.rb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 55], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtworkShare Create (0.2ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 32], ["viewer_id", 55], ["created_at", "2021-11-11 21:22:52.728583"], ["updated_at", "2021-11-11 21:22:52.728583"]]
+  ↳ db/seeds.rb:30
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 55], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtworkShare Create (0.1ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 33], ["viewer_id", 55], ["created_at", "2021-11-11 21:22:52.730818"], ["updated_at", "2021-11-11 21:22:52.730818"]]
+  ↳ db/seeds.rb:30
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ db/seeds.rb:35
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 53], ["artwork_id", 33], ["body", "This sucks"], ["created_at", "2021-11-11 21:22:52.764972"], ["updated_at", "2021-11-11 21:22:52.764972"]]
+  ↳ db/seeds.rb:36
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 54], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 54], ["artwork_id", 32], ["body", "Love your work"], ["created_at", "2021-11-11 21:22:52.767257"], ["updated_at", "2021-11-11 21:22:52.767257"]]
+  ↳ db/seeds.rb:36
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 55], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 55], ["artwork_id", 32], ["body", "I will buy this as an NFT."], ["created_at", "2021-11-11 21:22:52.769264"], ["updated_at", "2021-11-11 21:22:52.769264"]]
+  ↳ db/seeds.rb:36
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 55], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 55], ["artwork_id", 33], ["body", "How much can I buy this for?"], ["created_at", "2021-11-11 21:22:52.771152"], ["updated_at", "2021-11-11 21:22:52.771152"]]
+  ↳ db/seeds.rb:36
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+  ↳ db/seeds.rb:43
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ db/seeds.rb:44
+  [1m[36mLike Create (0.2ms)[0m  [1m[32mINSERT INTO "likes" ("likeable_type", "likeable_id", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["likeable_type", "Artwork"], ["likeable_id", 32], ["created_at", "2021-11-11 21:22:52.791283"], ["updated_at", "2021-11-11 21:22:52.791283"], ["user_id", 55]]
+  ↳ db/seeds.rb:44
+  [1m[35m (5.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT  "likes".* FROM "likes" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" ORDER BY "artworks"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT  "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2 LIMIT $3[0m  [["likeable_id", 32], ["likeable_type", "Artwork"], ["LIMIT", 11]]
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mArtwork Load (0.4ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" ORDER BY "artworks"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:16
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 53]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Destroy (0.4ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 29]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 53]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 54]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 30]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 54]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 55]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Destroy (0.3ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 31]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 32]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 55]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Josh"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Josh"], ["created_at", "2021-11-11 21:27:46.426947"], ["updated_at", "2021-11-11 21:27:46.426947"]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Caleb"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Caleb"], ["created_at", "2021-11-11 21:27:46.428470"], ["updated_at", "2021-11-11 21:27:46.428470"]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Alvin"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Alvin"], ["created_at", "2021-11-11 21:27:46.429765"], ["updated_at", "2021-11-11 21:27:46.429765"]]
+  ↳ db/seeds.rb:17
+  [1m[36mArtwork Load (0.3ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ db/seeds.rb:23
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."artwork_id" = $1[0m  [["artwork_id", 32]]
+  ↳ db/seeds.rb:23
+  [1m[36mArtwork Destroy (0.2ms)[0m  [1m[31mDELETE FROM "artworks" WHERE "artworks"."id" = $1[0m  [["id", 32]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."artwork_id" = $1[0m  [["artwork_id", 33]]
+  ↳ db/seeds.rb:23
+  [1m[36mArtwork Destroy (0.1ms)[0m  [1m[31mDELETE FROM "artworks" WHERE "artworks"."id" = $1[0m  [["id", 33]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mArtwork Create (0.2ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image_url", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Star Wars"], ["image_url", "https://www.google.com/imgres?imgurl=https%3A%2F%2Fres.cloudinary.com%2Fjerrick%2Fimage%2Fupload%2Ff_jpg%2Cfl_progressive%2Cq_auto%2Cw_1024%2Fy3mdgvccfyvmemabidd0.jpg&imgrefurl=https%3A%2F%2Fvocal.media%2Fgeeks%2Fthe-funniest-star-wars-parodies-spoofs-and-sketches&tbnid=PxVZGOV_iZQL5M&vet=12ahUKEwiT1vDg4Y70AhWVqnIEHc3hAnUQMygAegUIARC1AQ..i&docid=TOFSYS-33UHtdM&w=1024&h=683&itg=1&q=star%20wars%20funny&ved=2ahUKEwiT1vDg4Y70AhWVqnIEHc3hAnUQMygAegUIARC1AQ"], ["artist_id", 56], ["created_at", "2021-11-11 21:27:46.484127"], ["updated_at", "2021-11-11 21:27:46.484127"]]
+  ↳ db/seeds.rb:24
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mArtwork Create (0.2ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image_url", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Lord of the Rings"], ["image_url", "https://media-cldnry.s-nbcnews.com/image/upload/streams/2013/October/131016/8C9394934-tdy-kardashian-ring-131016-new.jpg"], ["artist_id", 57], ["created_at", "2021-11-11 21:27:46.486178"], ["updated_at", "2021-11-11 21:27:46.486178"]]
+  ↳ db/seeds.rb:24
+  [1m[36mArtworkShare Load (0.3ms)[0m  [1m[34mSELECT "artwork_shares".* FROM "artwork_shares"[0m
+  ↳ db/seeds.rb:29
+  [1m[36mArtworkShare Destroy (0.3ms)[0m  [1m[31mDELETE FROM "artwork_shares" WHERE "artwork_shares"."id" = $1[0m  [["id", 20]]
+  ↳ db/seeds.rb:29
+  [1m[36mArtworkShare Destroy (0.1ms)[0m  [1m[31mDELETE FROM "artwork_shares" WHERE "artwork_shares"."id" = $1[0m  [["id", 21]]
+  ↳ db/seeds.rb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtworkShare Create (0.2ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 34], ["viewer_id", 58], ["created_at", "2021-11-11 21:27:46.538360"], ["updated_at", "2021-11-11 21:27:46.538360"]]
+  ↳ db/seeds.rb:30
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mArtworkShare Create (0.1ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 35], ["viewer_id", 58], ["created_at", "2021-11-11 21:27:46.540607"], ["updated_at", "2021-11-11 21:27:46.540607"]]
+  ↳ db/seeds.rb:30
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ db/seeds.rb:35
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 56], ["artwork_id", 35], ["body", "This sucks"], ["created_at", "2021-11-11 21:27:46.574191"], ["updated_at", "2021-11-11 21:27:46.574191"]]
+  ↳ db/seeds.rb:36
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 57], ["artwork_id", 34], ["body", "Love your work"], ["created_at", "2021-11-11 21:27:46.576594"], ["updated_at", "2021-11-11 21:27:46.576594"]]
+  ↳ db/seeds.rb:36
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 58], ["artwork_id", 34], ["body", "I will buy this as an NFT."], ["created_at", "2021-11-11 21:27:46.578606"], ["updated_at", "2021-11-11 21:27:46.578606"]]
+  ↳ db/seeds.rb:36
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 58], ["artwork_id", 35], ["body", "How much can I buy this for?"], ["created_at", "2021-11-11 21:27:46.580680"], ["updated_at", "2021-11-11 21:27:46.580680"]]
+  ↳ db/seeds.rb:36
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+  ↳ db/seeds.rb:43
+  [1m[36mLike Destroy (0.2ms)[0m  [1m[31mDELETE FROM "likes" WHERE "likes"."id" = $1[0m  [["id", 4]]
+  ↳ db/seeds.rb:43
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ db/seeds.rb:44
+  [1m[36mLike Create (0.2ms)[0m  [1m[32mINSERT INTO "likes" ("likeable_type", "likeable_id", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["likeable_type", "Artwork"], ["likeable_id", 34], ["created_at", "2021-11-11 21:27:46.601500"], ["updated_at", "2021-11-11 21:27:46.601500"], ["user_id", 56]]
+  ↳ db/seeds.rb:44
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ db/seeds.rb:44
+  [1m[36mLike Create (0.1ms)[0m  [1m[32mINSERT INTO "likes" ("likeable_type", "likeable_id", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["likeable_type", "Artwork"], ["likeable_id", 34], ["created_at", "2021-11-11 21:27:46.603044"], ["updated_at", "2021-11-11 21:27:46.603044"], ["user_id", 57]]
+  ↳ db/seeds.rb:44
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ db/seeds.rb:44
+  [1m[36mLike Create (0.1ms)[0m  [1m[32mINSERT INTO "likes" ("likeable_type", "likeable_id", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["likeable_type", "Artwork"], ["likeable_id", 34], ["created_at", "2021-11-11 21:27:46.604535"], ["updated_at", "2021-11-11 21:27:46.604535"], ["user_id", 58]]
+  ↳ db/seeds.rb:44
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ db/seeds.rb:44
+  [1m[36mLike Create (0.1ms)[0m  [1m[32mINSERT INTO "likes" ("likeable_type", "likeable_id", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["likeable_type", "Artwork"], ["likeable_id", 35], ["created_at", "2021-11-11 21:27:46.605977"], ["updated_at", "2021-11-11 21:27:46.605977"], ["user_id", 58]]
+  ↳ db/seeds.rb:44
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" ORDER BY "artworks"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT  "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2 LIMIT $3[0m  [["likeable_id", 34], ["likeable_type", "Artwork"], ["LIMIT", 11]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/likes?likeable_id=34&likeable_type=%22Artwork%22&user_id=56" for ::1 at 2021-11-11 16:39:06 -0500
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/caleb/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by LikesController#create as */*
+  Parameters: {"likeable_id"=>"34", "likeable_type"=>"\"Artwork\"", "user_id"=>"56"}
+Completed 400 Bad Request in 53ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: like):
+  
+app/controllers/likes_controller.rb:20:in `like_params'
+app/controllers/likes_controller.rb:4:in `create'
+Started POST "/likes?likes[likeable_id]=34&likes[likeable_type]=%22Artwork%22&likes[user_id]=56" for ::1 at 2021-11-11 16:40:24 -0500
+Processing by LikesController#create as */*
+  Parameters: {"likes"=>{"likeable_id"=>"34", "likeable_type"=>"\"Artwork\"", "user_id"=>"56"}}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: like):
+  
+app/controllers/likes_controller.rb:20:in `like_params'
+app/controllers/likes_controller.rb:4:in `create'
+Started POST "/likes?likes[likeable_id]=34&likes[likeable_type]=%22Artwork%22&likes[user_id]=56" for ::1 at 2021-11-11 16:40:29 -0500
+Processing by LikesController#create as */*
+  Parameters: {"likes"=>{"likeable_id"=>"34", "likeable_type"=>"\"Artwork\"", "user_id"=>"56"}}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: like):
+  
+app/controllers/likes_controller.rb:20:in `like_params'
+app/controllers/likes_controller.rb:4:in `create'
+Started POST "/likes?like[likeable_id]=34&like[likeable_type]=%22Artwork%22&like[user_id]=56" for ::1 at 2021-11-11 16:40:52 -0500
+Processing by LikesController#create as */*
+  Parameters: {"like"=>{"likeable_id"=>"34", "likeable_type"=>"\"Artwork\"", "user_id"=>"56"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/likes_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/likes_controller.rb:5
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 2.8ms)
+
+
+  
+NameError (wrong constant name "Artwork"):
+  
+app/controllers/likes_controller.rb:5:in `create'
+Started POST "/likes?like[likeable_id]=34&like[likeable_type]=%22Artwork%22&like[user_id]=56" for ::1 at 2021-11-11 16:42:17 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/caleb/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by LikesController#create as */*
+  Parameters: {"like"=>{"likeable_id"=>"34", "likeable_type"=>"\"Artwork\"", "user_id"=>"56"}}
+Completed 500 Internal Server Error in 29185ms (ActiveRecord: 0.0ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/likes_controller.rb:5:in `create'
+Started POST "/likes?like[likeable_id]=34&like[likeable_type]=Artwork&like[user_id]=56" for ::1 at 2021-11-11 16:42:55 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/caleb/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by LikesController#create as */*
+  Parameters: {"like"=>{"likeable_id"=>"34", "likeable_type"=>"Artwork", "user_id"=>"56"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/likes_controller.rb:6
+  [1m[36mArtwork Load (0.3ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:6
+  [1m[36mLike Create (0.6ms)[0m  [1m[32mINSERT INTO "likes" ("likeable_type", "likeable_id", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["likeable_type", "Artwork"], ["likeable_id", 34], ["created_at", "2021-11-11 21:42:58.452350"], ["updated_at", "2021-11-11 21:42:58.452350"], ["user_id", 56]]
+  ↳ app/controllers/likes_controller.rb:6
+  [1m[35m (4.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/likes_controller.rb:6
+Completed 200 OK in 2584ms (Views: 0.5ms | ActiveRecord: 12.1ms)
+
+
+Started DELETE "/likes?like[likeable_id]=34&like[likeable_type]=Artwork&like[user_id]=56" for ::1 at 2021-11-11 16:43:17 -0500
+  
+ActionController::RoutingError (No route matches [DELETE] "/likes"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started DELETE "/likes/1" for ::1 at 2021-11-11 16:45:21 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/caleb/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by LikesController#destroy as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mLike Load (0.9ms)[0m  [1m[34mSELECT  "likes".* FROM "likes" WHERE "likes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:14
+Completed 404 Not Found in 61ms (ActiveRecord: 3.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Like with 'id'=1):
+  
+app/controllers/likes_controller.rb:14:in `destroy'
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT  "likes".* FROM "likes" LIMIT $1[0m  [["LIMIT", 11]]
+Started DELETE "/likes/5" for ::1 at 2021-11-11 16:45:44 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/caleb/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by LikesController#destroy as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT  "likes".* FROM "likes" WHERE "likes"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/likes_controller.rb:15
+  [1m[36mLike Destroy (0.6ms)[0m  [1m[31mDELETE FROM "likes" WHERE "likes"."id" = $1[0m  [["id", 5]]
+  ↳ app/controllers/likes_controller.rb:15
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/likes_controller.rb:15
+Completed 200 OK in 78ms (Views: 0.5ms | ActiveRecord: 9.3ms)
+
+

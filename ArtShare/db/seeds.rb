@@ -42,11 +42,11 @@ ActiveRecord::Base.transaction do
 
     Like.destroy_all
     likes = Like.create!([
-        {likeable_id: users.third.id, likeable_type: users.first.username},
-        {likeable_id: users.third.id, likeable_type: users.second.username},
-        {likeable_id: users.third.id, likeable_type: artwork.first.title},
-        {likeable_id: users.first.id, likeable_type: artwork.second.title},
-
+        {likeable_id: artworks.first.id, likeable_type: "Artwork", user_id: users.first.id},
+        {likeable_id: artworks.first.id, likeable_type: "Artwork", user_id: users.second.id},
+        {likeable_id: artworks.first.id, likeable_type: "Artwork", user_id: users.third.id},
+        {likeable_id: artworks.second.id, likeable_type: "Artwork", user_id: users.third.id}
     ])
 
+    
 end
